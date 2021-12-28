@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { teal, cyan, deepPurple } from "@mui/material/colors";
+import { teal, cyan, deepPurple, red } from "@mui/material/colors";
 
 export const theme = createTheme({
   palette: {
@@ -7,8 +7,10 @@ export const theme = createTheme({
       main: cyan[600],
     },
     secondary: {
-      // main: teal[600],
-      main: deepPurple[600],
+      main: teal[600],
+    },
+    notification: {
+      main: red[300],
     },
   },
   myCustomButton: {
