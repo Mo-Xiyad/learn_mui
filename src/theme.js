@@ -7,12 +7,22 @@ export const theme = createTheme({
       main: cyan[600],
     },
     secondary: {
-      main: teal[600],
+      // main: teal[600],
+      main: deepPurple[600],
     },
   },
   myCustomButton: {
     color: deepPurple[700],
     backgroundColor: cyan[700],
     border: teal[200],
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 450,
+      md: 600,
+      lg: 900,
+      xl: 1200,
+    },
   },
 });
