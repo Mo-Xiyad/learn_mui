@@ -4,13 +4,16 @@ import { teal, cyan, deepPurple, red } from "@mui/material/colors";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: cyan[600],
+      main: "#204A46",
     },
     secondary: {
       main: teal[600],
     },
     notification: {
       main: red[300],
+    },
+    fontColor: {
+      main: "#FFFFFF",
     },
   },
   myCustomButton: {
@@ -26,5 +29,11 @@ export const theme = createTheme({
       lg: 900,
       xl: 1200,
     },
+  },
+  // AppFonts: {
+  //   font-family: Cabin, sans-serif,
+  // },
+  typography: {
+    fontFamily: "Cabin, sans-serif",
   },
 });
