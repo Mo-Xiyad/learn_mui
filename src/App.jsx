@@ -6,7 +6,7 @@ import Navbar from "./components/Nav/Navbar";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LeftBar from "./components/Nav/Leftbar";
-import Feed from "./components/Feed/Index";
+import Home from "./components/Home/Index";
 import RightBar from "./components/Nav/Rightbar";
 import CssBaseline from "@mui/material/CssBaseline";
 
@@ -17,24 +17,13 @@ const MainDiv = styled("div")(({ theme }) => ({
 
 function App() {
   return (
-    <MainDiv>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline>
         <Navbar />
-        <Box>
-          <Grid container spacing={2}>
-            <Grid item xs={0} md={2}>
-              <LeftBar />
-            </Grid>
-            <Grid item xs={6} md={7}>
-              <Feed />
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <RightBar />
-            </Grid>
-          </Grid>
-        </Box>
+        <LeftBar />
+        <Home />
       </CssBaseline>
-    </MainDiv>
+    </Box>
   );
 }
 
