@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) =>
       width: "50%",
       [theme.breakpoints.down("sm")]: {
         display: (props) => (props.showSearch ? "flex" : "none"),
+        width: "70%",
       },
     },
     input: {
