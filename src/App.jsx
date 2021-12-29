@@ -7,7 +7,6 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LeftBar from "./components/Nav/Leftbar";
 import Home from "./components/Home/Index";
-import RightBar from "./components/Nav/Rightbar";
 import CssBaseline from "@mui/material/CssBaseline";
 
 const MainDiv = styled("div")(({ theme }) => ({
