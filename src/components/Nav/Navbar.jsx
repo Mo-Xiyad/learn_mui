@@ -76,6 +76,7 @@ const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const classes = useStyles({ showSearch });
   return (
+    // <Box sx={{ display: "flex" }}>
     <AppBar position="static">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.logoLg}>
@@ -142,6 +143,7 @@ const Navbar = () => {
         </div>
       </Toolbar>
     </AppBar>
+    // </Box>
   );
 };
 

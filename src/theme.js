@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { teal, cyan, deepPurple, red } from "@mui/material/colors";
+import { teal, red } from "@mui/material/colors";
 
 export const theme = createTheme({
   palette: {
@@ -20,11 +20,6 @@ export const theme = createTheme({
       optionOne: "#242424",
     },
   },
-  myCustomButton: {
-    color: deepPurple[700],
-    backgroundColor: cyan[700],
-    border: teal[200],
-  },
   breakpoints: {
     values: {
       xs: 0,
@@ -34,9 +29,6 @@ export const theme = createTheme({
       xl: 1200,
     },
   },
-  // AppFonts: {
-  //   font-family: Cabin, sans-serif,
-  // },
   typography: {
     fontFamily: "Cabin, sans-serif",
   },

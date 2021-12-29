@@ -27,7 +27,7 @@ const MyButton = styled(Button, {
 `;
 
 const RightBar = () => {
-  return <div></div>;
+  return <div>right bar</div>;
 };
 
 export default RightBar;
