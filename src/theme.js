@@ -9,11 +9,15 @@ export const theme = createTheme({
     secondary: {
       main: teal[600],
     },
+    backgroundPrimary: {
+      main: "#EBEEF0",
+    },
     notification: {
-      main: red[300],
+      main: red[400],
     },
     fontColor: {
-      main: "#FFFFFF",
+      main: "#EBEEF0",
+      optionOne: "#242424",
     },
   },
   myCustomButton: {

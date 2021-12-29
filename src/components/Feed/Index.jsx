@@ -3,12 +3,10 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import { purple, yellow } from "@mui/material/colors";
 
-const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(purple[500]),
-  backgroundColor: purple[500],
-  "&:hover": {
-    backgroundColor: purple[700],
-  },
+const ContainerDiv = styled("div")(({ theme }) => ({
+  color: theme.palette.fontColor.optionOne,
+  // backgroundColor: theme.palette.backgroundPrimary.main,
+  // height: "100vh",
 }));
 const NewButton = styled(Button)(({ theme }) => ({
   ...theme.myCustomButton,
@@ -27,7 +25,14 @@ const MyButton = styled(Button, {
 `;
 
 const Feed = () => {
-  return <div></div>;
+  return (
+    <ContainerDiv>
+      {" "}
+      xs=6 md=8ssdsadsdsdsdsdsdsdsddsdsdsdsdsdsds sdasdsdsdsdsdsdsdsdsdsdssa
+      sdasdsadsdsdsdsdsdsdsds sdasdsdsdsdsdsdsdsdsdsdssa sdasdsadsdsdsdsdsdsdsds
+      sdasdsdsdsdsdsdsdsdsdsdssa sdasdsadsdsdsdsdsdsdsds asddsadsddasdsdsdsdsds
+    </ContainerDiv>
+  );
 };
 
 export default Feed;
