@@ -7,15 +7,18 @@ import { theme } from "./theme";
 import { Provider } from "react-redux";
 import configureStore, { persister } from "./redux";
 import { PersistGate } from "redux-persist/integration/react";
+import { BrowserRouter } from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={configureStore}>
-      <PersistGate persistor={persister}>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
+    <BrowserRouter>
+      <Provider store={configureStore}>
+        <PersistGate persistor={persister}>
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
+        </PersistGate>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

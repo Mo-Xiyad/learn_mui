@@ -26,11 +26,10 @@ import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlin
 import StyleOutlinedIcon from "@mui/icons-material/StyleOutlined";
 import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
 import BookOnlineIcon from "@mui/icons-material/BookOnline";
-import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
-
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { leftBarAction } from "../../redux/actions";
-import { Button } from "@mui/material";
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -84,6 +83,7 @@ const Drawer = styled(MuiDrawer, {
 const LeftBar = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const open = useSelector((state) => {
     return state.leftSideBar.open;
   });
@@ -169,7 +169,7 @@ const LeftBar = () => {
         <Divider />
 
         <List>
-          <ListItem button>
+          <ListItem button onClick={() => navigate("/reports")}>
             <ListItemIcon>
               <BarChartIcon />
             </ListItemIcon>

@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import LeftBar from "./Leftbar";
 
 const drawerWidth = 240;
@@ -43,12 +44,18 @@ const Navbar = () => {
   const open = useSelector((state) => {
     return state.leftSideBar.open;
   });
+  const navigate = useNavigate();
   const theme = useTheme();
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar position="fixed" open={open} sx={{ display: "flex" }}>
         <Toolbar>
-          <CustomTypography noWrap component="div" className="navText">
+          <CustomTypography
+            noWrap
+            component="div"
+            className="navText"
+            onClick={() => navigate("/")}
+          >
             happy
           </CustomTypography>
         </Toolbar>

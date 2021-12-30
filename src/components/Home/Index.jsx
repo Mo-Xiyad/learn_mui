@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Link from "@mui/material/Link";
 import { useSelector } from "react-redux";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
@@ -41,24 +40,6 @@ const HomeDiv = styled(Box, {
   }),
 }));
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        happy
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const Feed = () => {
   const open = useSelector((state) => {
     return state.leftSideBar.open;
@@ -71,7 +52,7 @@ const Feed = () => {
       open={open}
     >
       {/* <DrawerHeader /> */}
-      {/* <Typography paragraph>
+      <Typography paragraph>
         hi Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
         dolor purus non enim praesent elementum facilisis leo vel. Risus at
@@ -98,7 +79,7 @@ const Feed = () => {
         Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra
         maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin
         aliquam ultrices sagittis orci a.
-      </Typography> */}
+      </Typography>
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
         <Grid container spacing={3}>
           {/* Chart */}
@@ -134,7 +115,6 @@ const Feed = () => {
             </Paper>
           </Grid>
         </Grid>
-        <Copyright sx={{ pt: 4 }} />
       </Container>
     </HomeDiv>
   );
