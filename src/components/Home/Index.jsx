@@ -53,18 +53,18 @@ const Feed = () => {
     >
       {/* <DrawerHeader /> */}
       <Typography paragraph>
-        hi Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-        dolor purus non enim praesent elementum facilisis leo vel. Risus at
-        ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-        quisque non tellus. Convallis convallis tellus id interdum velit laoreet
-        id donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing.
-        Amet nisl suscipit adipiscing bibendum est ultricies integer quis.
-        Cursus euismod quis viverra nibh cras. Metus vulputate eu scelerisque
-        felis imperdiet proin fermentum leo. Mauris commodo quis imperdiet massa
-        tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue
-        eget arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper
-        morbi tincidunt. Lorem donec massa sapien faucibus et molestie ac.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
+        non enim praesent elementum facilisis leo vel. Risus at ultrices mi
+        tempus imperdiet. Semper risus in hendrerit gravida rutrum quisque non
+        tellus. Convallis convallis tellus id interdum velit laoreet id donec
+        ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
+        suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod
+        quis viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet
+        proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
+        tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
+        varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
+        Lorem donec massa sapien faucibus et molestie ac.
       </Typography>
       <Typography paragraph>
         Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
@@ -81,9 +81,9 @@ const Feed = () => {
         aliquam ultrices sagittis orci a.
       </Typography>
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-        <Grid container spacing={3}>
+        <Grid container spacing={1}>
           {/* Chart */}
-          <Grid item xs={12} md={8} lg={9}>
+          {/* <Grid item xs={12} md={8} lg={9}>
             <Paper
               sx={{
                 p: 2,
@@ -94,9 +94,9 @@ const Feed = () => {
             >
               <Chart />
             </Paper>
-          </Grid>
+          </Grid> */}
           {/* Recent Deposits */}
-          <Grid item xs={12} md={4} lg={3}>
+          {/* <Grid item xs={12} md={4} lg={3}>
             <Paper
               sx={{
                 p: 2,
@@ -107,11 +107,16 @@ const Feed = () => {
             >
               <Deposits />
             </Paper>
-          </Grid>
+          </Grid> */}
           {/* Recent Orders */}
           <Grid item xs={12}>
             <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-              <Orders />
+              {/* <Orders /> */}
+              <img
+                src={"https://restaurant.eatapp.co/hubfs/Cactus-macbook.svg"}
+                alt="main home view"
+                loading="lazy"
+              />
             </Paper>
           </Grid>
         </Grid>
