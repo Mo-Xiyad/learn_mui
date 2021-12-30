@@ -4,11 +4,18 @@ import App from "./App";
 import { ThemeProvider } from "@mui/system";
 import reportWebVitals from "./reportWebVitals";
 import { theme } from "./theme";
+import { Provider } from "react-redux";
+import configureStore, { persister } from "./redux";
+import { PersistGate } from "redux-persist/integration/react";
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <Provider store={configureStore}>
+      <PersistGate persistor={persister}>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

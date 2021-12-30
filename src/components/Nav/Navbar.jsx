@@ -17,6 +17,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+// import { useSelector } from "react-redux";
 
 const drawerWidth = 240;
 
@@ -86,7 +87,10 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer() {
+const Navbar = () => {
+  // const open = useSelector((state) => {
+  //   return state.leftSideBar.open;
+  // });
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
 
@@ -107,4 +111,5 @@ export default function MiniDrawer() {
       </Toolbar>
     </AppBar>
   );
-}
+};
+export default Navbar;
