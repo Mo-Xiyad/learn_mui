@@ -18,7 +18,10 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import LayersIcon from "@mui/icons-material/Layers";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import PeopleIcon from "@mui/icons-material/People";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import StyleOutlinedIcon from "@mui/icons-material/StyleOutlined";
 import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
@@ -150,22 +153,34 @@ const LeftBar = () => {
             </ListItemIcon>
             <ListItemText primary={"Menu Options"} />
           </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <ShoppingCartIcon />
+            </ListItemIcon>
+            <ListItemText primary="Orders" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <PeopleIcon />
+            </ListItemIcon>
+            <ListItemText primary="Customers" />
+          </ListItem>
         </List>
         <Divider />
 
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <BookOnlineIcon />
-                ) : (
-                  <BorderColorOutlinedIcon />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button>
+            <ListItemIcon>
+              <BarChartIcon />
+            </ListItemIcon>
+            <ListItemText primary="Reports" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <LayersIcon />
+            </ListItemIcon>
+            <ListItemText primary="Integrations" />
+          </ListItem>
           <ListItem button>
             <ListItemIcon>
               <MonetizationOnOutlinedIcon />
