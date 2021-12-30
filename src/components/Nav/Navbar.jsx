@@ -27,19 +27,30 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
+const CustomTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.fontColor.main,
+  fontFamily: "Cabin",
+  fontSize: "50px",
+  fontWeight: "bolder",
+  lineHeight: "1.2em",
+  letterSpacing: "0.07em",
+  "&:hover": {
+    // backgroundColor: purple[700],
+  },
+}));
+
 const Navbar = () => {
   const open = useSelector((state) => {
     return state.leftSideBar.open;
   });
   const theme = useTheme();
-
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar position="fixed" open={open} sx={{ display: "flex" }}>
         <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Happy
-          </Typography>
+          <CustomTypography noWrap component="div" className="navText">
+            happy
+          </CustomTypography>
         </Toolbar>
       </AppBar>
       <LeftBar />

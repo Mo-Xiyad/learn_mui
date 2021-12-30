@@ -2,5 +2,14 @@
   background-color: #ebeef0;
 }
 .css-15jffkc-MuiToolbar-root {
-  /* height: 9vh; */
+  height: 10vh;
+}
+.css-z1y3g5-MuiButtonBase-root-MuiIconButton-root {
+  margin-top: 10vh !important;
+  padding-bottom: 3vh !important;
+}
+.navText {
+  letter-spacing: 0.15em;
+  text-shadow: 1px -1px 0 #131313, -1px 2px 1px #131313, -2px 4px 1px #131313,
+    -3px 6px 1px #131313, -4px 8px 1px #131313, -5px 10px 1px #131313;
 }

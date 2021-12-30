@@ -102,9 +102,7 @@ const LeftBar = () => {
       >
         <DrawerHeader
           sx={{
-            ...(open
-              ? { display: "block", margin: "0 0" }
-              : { display: "none" }),
+            ...(open ? { display: "block", mt: 4 } : { display: "none" }),
           }}
         >
           <IconButton onClick={handleDrawerClose}>
