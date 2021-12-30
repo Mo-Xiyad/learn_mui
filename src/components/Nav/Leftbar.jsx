@@ -97,7 +97,7 @@ const LeftBar = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", heigh: "100vh" }}>
+    <Box sx={{ display: "flex" }}>
       <Drawer
         variant="permanent"
         open={open}
