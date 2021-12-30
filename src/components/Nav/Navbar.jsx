@@ -3,7 +3,9 @@ import { styled, useTheme } from "@mui/material/styles";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
+import LeftBar from "./Leftbar";
 
 const drawerWidth = 240;
 
@@ -32,13 +34,16 @@ const Navbar = () => {
   const theme = useTheme();
 
   return (
-    <AppBar position="fixed" open={open}>
-      <Toolbar>
-        <Typography variant="h6" noWrap component="div">
-          Mini variant drawer
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <Box sx={{ display: "flex" }}>
+      <AppBar position="fixed" open={open}>
+        <Toolbar>
+          <Typography variant="h6" noWrap component="div">
+            Mini variant drawer
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <LeftBar />
+    </Box>
   );
 };
 export default Navbar;

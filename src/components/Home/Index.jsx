@@ -1,20 +1,45 @@
 import react from "react";
 import Box from "@mui/material/Box";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { useSelector } from "react-redux";
+
+const drawerWidth = 240;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
+  padding: theme.spacing(0, 2),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
+const HomeDiv = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "open",
+})(({ theme, open }) => ({
+  marginLeft: "50px",
+  transition: theme.transitions.create(["width", "margin"], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
 const Feed = () => {
+  const open = useSelector((state) => {
+    return state.leftSideBar.open;
+  });
+  const theme = useTheme();
   return (
-    <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+    <HomeDiv component="main" sx={{ flexGrow: 1, pl: 5, pt: 2 }} open={open}>
       <DrawerHeader />
       <Typography paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -44,7 +69,7 @@ const Feed = () => {
         maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin
         aliquam ultrices sagittis orci a.
       </Typography>
-    </Box>
+    </HomeDiv>
   );
 };
 
