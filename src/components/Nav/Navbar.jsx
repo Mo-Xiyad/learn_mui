@@ -35,10 +35,10 @@ const Navbar = () => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ display: "flex" }}>
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            Happy
           </Typography>
         </Toolbar>
       </AppBar>

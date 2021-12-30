@@ -1,8 +1,13 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import "./Styles.css";
+import {
+  styled,
+  useTheme,
+  createTheme,
+  ThemeProvider,
+} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -12,10 +17,17 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import StyleOutlinedIcon from "@mui/icons-material/StyleOutlined";
+import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
+import BookOnlineIcon from "@mui/icons-material/BookOnline";
+import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
+
 import { useSelector, useDispatch } from "react-redux";
 import { leftBarAction } from "../../redux/actions";
+import { Button } from "@mui/material";
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -82,8 +94,12 @@ const LeftBar = () => {
   };
 
   return (
-    <Box sx={{ heigh: "100vh" }}>
-      <Drawer variant="permanent" open={open}>
+    <Box sx={{ display: "flex", heigh: "100vh" }}>
+      <Drawer
+        variant="permanent"
+        open={open}
+        sx={{ backgroundColor: "rgba(255,255,255)" }}
+      >
         <DrawerHeader
           sx={{
             ...(open
@@ -113,27 +129,51 @@ const LeftBar = () => {
         >
           <MenuIcon />
         </IconButton>
+
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button>
+            <ListItemIcon>
+              <BookOnlineIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Book Table"} />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemIcon>
+              <FactCheckOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Reservations"} />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemIcon>
+              <StyleOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Menu Options"} />
+          </ListItem>
         </List>
         <Divider />
+
         <List>
           {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? (
+                  <BookOnlineIcon />
+                ) : (
+                  <BorderColorOutlinedIcon />
+                )}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
+          <ListItem button>
+            <ListItemIcon>
+              <MonetizationOnOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Revenue"} />
+          </ListItem>
         </List>
         <Divider />
       </Drawer>
