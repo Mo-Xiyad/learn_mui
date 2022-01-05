@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Reports from "./components/Views/Reports";
+import BookTables from "./components/Views/booking";
 
 function Copyright(props) {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/reports" exact element={<Reports />} />
+          <Route path="/booktable" exact element={<BookTables />} />
         </Routes>
         <Copyright sx={{ pt: 4 }} />
       </CssBaseline>

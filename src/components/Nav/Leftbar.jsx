@@ -133,7 +133,7 @@ const LeftBar = () => {
 
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button onClick={() => navigate("/booktable")}>
             <ListItemIcon>
               <BookOnlineIcon />
             </ListItemIcon>

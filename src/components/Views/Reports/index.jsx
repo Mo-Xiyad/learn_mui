@@ -12,7 +12,7 @@ import Orders from "./Oreders";
 
 const drawerWidth = 240;
 
-const HomeDiv = styled(Box, {
+export const StarterDiv = styled(Box, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   marginLeft: "50px",
@@ -37,7 +37,7 @@ const Reports = () => {
   });
   const theme = useTheme();
   return (
-    <HomeDiv
+    <StarterDiv
       component="main"
       sx={{ flexGrow: 1, pl: 5, pt: 2, pr: 2 }}
       open={open}
@@ -77,7 +77,7 @@ const Reports = () => {
           </Grid>
         </Grid>
       </Container>
-    </HomeDiv>
+    </StarterDiv>
   );
 };
 
