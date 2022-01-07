@@ -1,12 +1,25 @@
 .drag-2 {
-  width: 25%;
-  min-height: 6.5em;
+  position: relative;
+  width: 72px;
+  height: 70px;
   margin: 1rem 0 0 1rem;
-  background-color: #29e;
-  color: white;
-  border-radius: 0.75em;
+  background-color: rgba(5, 112, 89, 0.76);
+  color: #ebeef0;
+  border-radius: 11px;
   padding: 4%;
   touch-action: none;
   user-select: none;
+  cursor: pointer;
   transform: translate(0px, 0px);
+}
+.box-inside {
+  width: 58px;
+  height: 58px;
+  position: absolute;
+  background-color: rgba(6, 114, 91, 0.527);
+  color: white;
+  border-radius: 9px;
+  top: 6px;
+  left: 7px;
+  /* transform: translate(0px, 0px); */
 }

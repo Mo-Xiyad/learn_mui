@@ -95,15 +95,17 @@ const BookTables = () => {
           </div>
         ))}
       </Grid> */}
-      <div>
-        <Grid id="top-row" container spacing={2}>
-          {tables?.map((table, i) => (
-            <Grid key={i} item className="draggable" xs={4}>
-              <Paper className="drag-2">{table.table_name} </Paper>
-            </Grid>
-          ))}
-        </Grid>
-      </div>
+      {/* <div> */}
+      <Grid id="top-row" container spacing={2}>
+        {tables?.map((table, i) => (
+          <Grid key={i} item className="draggable" xs={4}>
+            <div className="drag-2">
+              <div className="box-inside">{table.table_name} </div>{" "}
+            </div>
+          </Grid>
+        ))}
+      </Grid>
+      {/* </div> */}
     </StarterDiv>
   );
 };
