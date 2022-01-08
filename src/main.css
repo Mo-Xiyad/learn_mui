@@ -1,0 +1,8 @@
+@media (max-width: 510px) {
+  .hideOnSrceenSzie {
+    display: none !important;
+  }
+  .onMb-view {
+    margin-top: 10.5vh !important;
+  }
+}

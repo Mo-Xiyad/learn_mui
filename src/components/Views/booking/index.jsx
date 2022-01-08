@@ -7,7 +7,6 @@ import Grid from "@mui/material/Grid";
 
 import interact from "interactjs";
 import "./Styles.css";
-import { Paper } from "@mui/material";
 
 // target elements with the "draggable" class
 interact(".draggable").draggable({

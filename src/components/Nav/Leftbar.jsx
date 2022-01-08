@@ -1,11 +1,7 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import "./Styles.css";
-import {
-  styled,
-  useTheme,
-  createTheme,
-  ThemeProvider,
-} from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -29,6 +25,7 @@ import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { leftBarAction } from "../../redux/actions";
+import { useWindowWidth } from "../../tools/windowWidth";
 
 const drawerWidth = 240;
 
@@ -105,7 +102,7 @@ const LeftBar = () => {
       >
         <DrawerHeader
           sx={{
-            ...(open ? { display: "block", mt: 4 } : { display: "none" }),
+            ...(open ? { display: "block", mt: 3 } : { display: "none" }),
           }}
         >
           <IconButton onClick={handleDrawerClose}>
@@ -122,6 +119,7 @@ const LeftBar = () => {
           aria-label="open drawer"
           onClick={handleDrawerOpen}
           edge="start"
+          className="hideOnSrceenSzie"
           sx={{
             ...(open
               ? { display: "none" }
@@ -132,7 +130,7 @@ const LeftBar = () => {
         </IconButton>
 
         <Divider />
-        <List>
+        <List className="onMb-view">
           <ListItem button onClick={() => navigate("/booktable")}>
             <ListItemIcon>
               <BookOnlineIcon />

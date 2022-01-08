@@ -1,4 +1,6 @@
 import { styled, useTheme } from "@mui/material/styles";
+import "./main.css";
+import { useEffect } from "react";
 import Navbar from "./components/Nav/Navbar";
 import Box from "@mui/material/Box";
 import Home from "./components/Home/Index";
@@ -8,6 +10,9 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Reports from "./components/Views/Reports";
 import BookTables from "./components/Views/booking";
+import { useWindowWidth } from "./tools/windowWidth";
+import { changeWidth, leftBarAction } from "./redux/actions";
+import { useDispatch } from "react-redux";
 
 function Copyright(props) {
   return (
@@ -28,6 +33,16 @@ function Copyright(props) {
 }
 
 function App() {
+  const windowWidth = useWindowWidth();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (windowWidth < 510) {
+      // dispatch(leftBarAction(false));
+      dispatch(changeWidth(windowWidth));
+      console.log(windowWidth);
+    }
+  }, [windowWidth]);
+
   return (
     <Box xs={{ display: "flex" }}>
       <CssBaseline>
