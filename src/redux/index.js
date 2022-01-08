@@ -10,7 +10,7 @@ const workingMiddleware =
 
 export const initialState = {
   leftSideBar: {
-    open: true,
+    open: false,
   },
 };
 

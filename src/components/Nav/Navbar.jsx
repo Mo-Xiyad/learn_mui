@@ -48,7 +48,12 @@ const Navbar = () => {
   const theme = useTheme();
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar position="fixed" open={open} sx={{ display: "flex" }}>
+      <AppBar
+        position="fixed"
+        open={open}
+        sx={{ display: "flex" }}
+        theme={theme}
+      >
         <Toolbar>
           <CustomTypography
             noWrap

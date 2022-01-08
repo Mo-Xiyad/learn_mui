@@ -1,11 +1,10 @@
-import { styled, useTheme } from "@mui/material/styles";
 import "./main.css";
 import { useEffect } from "react";
 import Navbar from "./components/Nav/Navbar";
 import Box from "@mui/material/Box";
 import Home from "./components/Home/Index";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Reports from "./components/Views/Reports";
@@ -39,7 +38,6 @@ function App() {
     if (windowWidth < 510) {
       // dispatch(leftBarAction(false));
       dispatch(changeWidth(windowWidth));
-      console.log(windowWidth);
     }
   }, [windowWidth]);
 
