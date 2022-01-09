@@ -12,6 +12,7 @@ import BookTables from "./components/Views/booking";
 import { useWindowWidth } from "./tools/windowWidth";
 import { changeWidth, leftBarAction } from "./redux/actions";
 import { useDispatch } from "react-redux";
+import Registration from "./components/Registration";
 
 function Copyright(props) {
   return (
@@ -46,7 +47,11 @@ function App() {
       <CssBaseline>
         <Navbar />
         <Routes>
-          <Route path="/" exact element={<Home />} />
+          {/* {["/home", "/reports", "/booktable"].map((path) => (
+            <Route path={path} exact element={<Navbar />} />
+          ))} */}
+          <Route path="/" exact element={<Registration />} />
+          <Route path="/home" exact element={<Home />} />
           <Route path="/reports" exact element={<Reports />} />
           <Route path="/booktable" exact element={<BookTables />} />
         </Routes>
