@@ -5,32 +5,12 @@ import Box from "@mui/material/Box";
 import Home from "./components/Home/Index";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Routes, Route } from "react-router-dom";
-import Link from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
 import Reports from "./components/Views/Reports";
 import BookTables from "./components/Views/booking";
-import { useWindowWidth } from "./tools/windowWidth";
+import { Copyright, useWindowWidth } from "./tools/index.js";
 import { changeWidth, leftBarAction } from "./redux/actions";
 import { useDispatch } from "react-redux";
-import Registration from "./components/Registration";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        happy
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import Registration from "./components/Views/New-Restaurant";
 
 function App() {
   const windowWidth = useWindowWidth();
@@ -47,11 +27,8 @@ function App() {
       <CssBaseline>
         <Navbar />
         <Routes>
-          {/* {["/home", "/reports", "/booktable"].map((path) => (
-            <Route path={path} exact element={<Navbar />} />
-          ))} */}
-          <Route path="/" exact element={<Registration />} />
           <Route path="/home" exact element={<Home />} />
+          <Route path="/create-restaurant" exact element={<Registration />} />
           <Route path="/reports" exact element={<Reports />} />
           <Route path="/booktable" exact element={<BookTables />} />
         </Routes>

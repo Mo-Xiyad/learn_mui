@@ -9,27 +9,9 @@ import { useSelector } from "react-redux";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Oreders";
+import { MainDiv } from "../../Home/Index";
 
 const drawerWidth = 240;
-
-export const StarterDiv = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  marginLeft: "50px",
-  marginTop: "10vh",
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
 
 const Reports = () => {
   const open = useSelector((state) => {
@@ -37,7 +19,7 @@ const Reports = () => {
   });
   const theme = useTheme();
   return (
-    <StarterDiv
+    <MainDiv
       component="main"
       sx={{ flexGrow: 1, pl: 5, pt: 2, pr: 2 }}
       open={open}
@@ -77,7 +59,7 @@ const Reports = () => {
           </Grid>
         </Grid>
       </Container>
-    </StarterDiv>
+    </MainDiv>
   );
 };
 

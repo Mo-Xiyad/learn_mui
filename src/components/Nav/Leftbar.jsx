@@ -25,7 +25,7 @@ import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { leftBarAction } from "../../redux/actions";
-import { useWindowWidth } from "../../tools/windowWidth";
+import { useWindowWidth } from "../../tools/index.js";
 
 const drawerWidth = 240;
 

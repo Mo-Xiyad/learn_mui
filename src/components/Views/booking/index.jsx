@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { StarterDiv } from "../Reports";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
 import interact from "interactjs";
 import "./Styles.css";
+import { MainDiv } from "../../Home/Index";
 
 // target elements with the "draggable" class
 interact(".draggable").draggable({
@@ -79,7 +79,7 @@ const BookTables = () => {
     get_tables();
   }, []);
   return (
-    <StarterDiv
+    <MainDiv
       component="main"
       sx={{ flexGrow: 1, pl: 5, pt: 2, pr: 2 }}
       open={open}
@@ -105,7 +105,7 @@ const BookTables = () => {
         ))}
       </Grid>
       {/* </div> */}
-    </StarterDiv>
+    </MainDiv>
   );
 };
 
