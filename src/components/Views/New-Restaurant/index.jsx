@@ -142,11 +142,12 @@ const Registration = () => {
               />
             </FormControl>
             {/* delete rest */}
-            {/* <FormControl variant="standard">
+            <FormControl variant="standard">
               <ValidationTextField
                 helperText="Please enter contact email address of the restaurant!"
                 label="Restaurant email"
                 variant="outlined"
+                required
                 defaultValue=""
                 id="validation-outlined-input"
               />
@@ -160,7 +161,7 @@ const Registration = () => {
                 defaultValue=""
                 id="validation-outlined-input"
               />
-            </FormControl> */}
+            </FormControl>
           </Box>
         </Grid>
       </GridCustom>
