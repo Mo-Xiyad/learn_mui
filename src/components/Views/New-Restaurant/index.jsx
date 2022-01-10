@@ -7,13 +7,12 @@ import FormControl from "@mui/material/FormControl";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useWindowWidth } from "../../../tools";
-import { Grid } from "@mui/material";
+import { Button, Checkbox, FormControlLabel, Grid } from "@mui/material";
 
 const Div = styled(Box, {
   shouldForwardProp: (prop) => prop !== "windowWidth",
 })(({ theme, windowWidth }) => ({
   display: "flex",
-  // display: "grid",
   marginLeft: "-18px",
   marginTop: "15vh",
   transition: theme.transitions.create(["width", "margin"], {
@@ -42,7 +41,6 @@ const GridCustom = styled(Grid, {
   ...(windowWidth < 510 && {
     width: "98vw",
     marginTop: "0vh",
-    // justifyContent: "center",
     padding: theme.spacing(1),
     transition: theme.transitions.create(["width", "marginTop"], {
       easing: theme.transitions.easing.sharp,
@@ -62,7 +60,6 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const ValidationTextField = styled(TextField)({
-  // width: "90%",
   "& input:valid + fieldset": {
     borderColor: "green",
     borderWidth: 2,
@@ -80,6 +77,10 @@ const ValidationTextField = styled(TextField)({
 
 const Registration = () => {
   const windowWidth = useWindowWidth();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
   return (
     <Div
       component="main"
@@ -136,18 +137,17 @@ const Registration = () => {
                 helperText="Please enter number of tables you have in your restaurant!"
                 label="Number of tables  "
                 required
+                type="number"
                 variant="outlined"
                 defaultValue=""
                 id="validation-outlined-input"
               />
             </FormControl>
-            {/* delete rest */}
             <FormControl variant="standard">
               <ValidationTextField
                 helperText="Please enter contact email address of the restaurant!"
                 label="Restaurant email"
                 variant="outlined"
-                required
                 defaultValue=""
                 id="validation-outlined-input"
               />
@@ -156,12 +156,30 @@ const Registration = () => {
               <ValidationTextField
                 helperText="Please enter phone number of the restaurant!"
                 label="Phone number"
-                required
                 variant="outlined"
                 defaultValue=""
                 id="validation-outlined-input"
               />
             </FormControl>
+            <FormControlLabel
+              control={<Checkbox />}
+              label={
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Get Happy news, updates and offers delivered right to your
+                  inbox.
+                </Typography>
+              }
+            />
+            <div>
+              <Button
+                type="submit"
+                variant="contained"
+                xs={{ color: "primary" }}
+                onClick={handleSubmit}
+              >
+                submit
+              </Button>
+            </div>
           </Box>
         </Grid>
       </GridCustom>
