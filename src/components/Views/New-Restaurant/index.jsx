@@ -133,7 +133,7 @@ const Registration = () => {
             </FormControl>
             <FormControl variant="standard">
               <ValidationTextField
-                helperText="Please enter how many tables you have in your restaurant!"
+                helperText="Please enter number of tables you have in your restaurant!"
                 label="Number of tables  "
                 required
                 variant="outlined"
