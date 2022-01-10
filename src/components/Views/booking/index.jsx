@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
 import interact from "interactjs";
 import "./Styles.css";
 import { MainDiv } from "../../Home/Index";
+import { setRestaurantDataAction } from "../../../redux/actions";
 
 // target elements with the "draggable" class
 interact(".draggable").draggable({
@@ -61,14 +62,22 @@ const BookTables = () => {
   const open = useSelector((state) => {
     return state.leftSideBar.open;
   });
-  const [tables, setTables] = useState();
+  const tables = useSelector((state) => {
+    return state.restaurant.tables;
+  });
+  const dispatch = useDispatch();
   const get_tables = async () => {
     try {
-      const res = await fetch("http://localhost:3002/restaurant");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/restaurant`);
       if (res.ok) {
         let data = await res.json();
-        console.log(data[0].tables);
-        setTables(data[0].tables);
+        console.log(data[0]);
+        dispatch(
+          setRestaurantDataAction({
+            tables: data[0].tables,
+            name: data[0].restaurant_name,
+          })
+        );
       }
     } catch (error) {
       console.log(error);
@@ -76,7 +85,7 @@ const BookTables = () => {
   };
 
   useEffect(() => {
-    get_tables();
+    // get_tables();
   }, []);
   return (
     <MainDiv

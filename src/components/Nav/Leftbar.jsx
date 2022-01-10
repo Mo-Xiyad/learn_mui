@@ -84,6 +84,9 @@ const LeftBar = () => {
   const open = useSelector((state) => {
     return state.leftSideBar.open;
   });
+  const restaurant = useSelector((state) => {
+    return state.restaurant;
+  });
 
   const handleDrawerOpen = () => {
     dispatch(leftBarAction(true));
@@ -99,8 +102,10 @@ const LeftBar = () => {
         variant="permanent"
         open={open}
         sx={{ backgroundColor: "rgba(255,255,255)" }}
-      >
-        <DrawerHeader
+        >
+          {restaurant?.name && restaurant?.tables ? 
+          <>
+          <DrawerHeader
           sx={{
             ...(open ? { display: "block", mt: 3 } : { display: "none" }),
           }}
@@ -187,6 +192,13 @@ const LeftBar = () => {
           </ListItem>
         </List>
         <Divider />
+        </>
+        :
+        <>
+        <Divider />
+        </>
+        }
+        
       </Drawer>
     </Box>
   );
