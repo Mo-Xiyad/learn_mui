@@ -44,6 +44,9 @@ const Navbar = () => {
   const open = useSelector((state) => {
     return state.leftSideBar.open;
   });
+  const restaurant = useSelector((state) => {
+    return state.restaurant;
+  });
   const navigate = useNavigate();
   const theme = useTheme();
   return (
@@ -65,7 +68,13 @@ const Navbar = () => {
           </CustomTypography>
         </Toolbar>
       </AppBar>
-      <LeftBar />
+      {restaurant?.name && restaurant?.tables ? (
+        <>
+          <LeftBar />{" "}
+        </>
+      ) : (
+        <></>
+      )}
     </Box>
   );
 };

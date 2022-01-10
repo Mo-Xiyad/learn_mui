@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import "./Styles.css";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -25,7 +25,6 @@ import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { leftBarAction } from "../../redux/actions";
-import { useWindowWidth } from "../../tools/index.js";
 
 const drawerWidth = 240;
 
@@ -84,9 +83,6 @@ const LeftBar = () => {
   const open = useSelector((state) => {
     return state.leftSideBar.open;
   });
-  const restaurant = useSelector((state) => {
-    return state.restaurant;
-  });
 
   const handleDrawerOpen = () => {
     dispatch(leftBarAction(true));
@@ -102,10 +98,8 @@ const LeftBar = () => {
         variant="permanent"
         open={open}
         sx={{ backgroundColor: "rgba(255,255,255)" }}
-        >
-          {restaurant?.name && restaurant?.tables ? 
-          <>
-          <DrawerHeader
+      >
+        <DrawerHeader
           sx={{
             ...(open ? { display: "block", mt: 3 } : { display: "none" }),
           }}
@@ -192,13 +186,6 @@ const LeftBar = () => {
           </ListItem>
         </List>
         <Divider />
-        </>
-        :
-        <>
-        <Divider />
-        </>
-        }
-        
       </Drawer>
     </Box>
   );

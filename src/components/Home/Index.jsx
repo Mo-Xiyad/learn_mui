@@ -1,14 +1,11 @@
 import react from "react";
 import Box from "@mui/material/Box";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { useSelector } from "react-redux";
-import Chart from "./Chart";
-import Deposits from "./Deposits";
-import Orders from "./Oreders";
 
 const drawerWidth = 240;
 
