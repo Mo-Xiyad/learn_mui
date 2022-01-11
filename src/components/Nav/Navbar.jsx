@@ -60,6 +60,7 @@ const Navbar = () => {
         <Toolbar>
           <CustomTypography
             noWrap
+            sx={{ paddingLeft: "30px" }}
             component="div"
             className="navText"
             onClick={() => navigate("/")}
