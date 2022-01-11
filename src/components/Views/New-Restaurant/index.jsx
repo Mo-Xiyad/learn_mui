@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { useWindowWidth } from "../../../tools";
 import { Button, Checkbox, FormControlLabel, Grid, Paper } from "@mui/material";
 
-const Div = styled(Box, {
+export const Div = styled(Box, {
   shouldForwardProp: (prop) => prop !== "windowWidth",
 })(({ theme, windowWidth }) => ({
   display: "flex",

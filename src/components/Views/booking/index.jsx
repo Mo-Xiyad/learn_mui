@@ -1,14 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { styled } from "@mui/material/styles";
 import { useSelector, useDispatch } from "react-redux";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
 import interact from "interactjs";
 import "./Styles.css";
-import { MainDiv } from "../../Home/Index";
 import { setRestaurantDataAction } from "../../../redux/actions";
+import { useWindowWidth } from "../../../tools";
+import ReservationForm from "./Form";
 
+const drawerWidth = 240;
 // target elements with the "draggable" class
 interact(".draggable").draggable({
   // enable inertial throwing
@@ -17,6 +21,7 @@ interact(".draggable").draggable({
   modifiers: [
     interact.modifiers.restrictRect({
       restriction: "parent",
+      // restriction: { top: 200, left: 1300, bottom: 700, right: 1850 },
       endOnly: true,
     }),
   ],
@@ -29,9 +34,7 @@ interact(".draggable").draggable({
 
     // call this function on every dragend event
     end(event) {
-      var textEl = event.target.querySelector(".box-inside");
-      // console.log(event.pageX);
-      // console.log(event.pageY);
+      var textEl = event.target.querySelector("p");
       textEl &&
         (textEl.textContent =
           "moved a distance of " +
@@ -59,6 +62,57 @@ function dragMoveListener(event) {
   target.setAttribute("data-y", y);
 }
 
+const GridCustom = styled(Grid, {
+  shouldForwardProp: (prop) => prop !== "windowWidth",
+})(({ theme, windowWidth }) => ({
+  width: "95vw",
+  marginTop: "3vh",
+  padding: "50px",
+  transition: theme.transitions.create(["width", "marginTop"], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(windowWidth < 600 && {
+    width: "98vw",
+    marginTop: "0vh",
+    paddingTop: "5px",
+    paddingLeft: theme.spacing(7),
+    // paddingRight: theme.spacing(5),
+    transition: theme.transitions.create(["width", "marginTop"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
+const BookingMainDiv = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "windowWidth" && prop !== "open",
+})(({ theme, windowWidth, open }) => ({
+  // display: "flex",
+  marginLeft: "50px",
+  marginTop: "4vh",
+  transition: theme.transitions.create(["width", "margin"], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(windowWidth < 600 && {
+    marginTop: "13vh",
+    marginLeft: "30px",
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+  ...(open && {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
 const BookTables = () => {
   const open = useSelector((state) => {
     return state.leftSideBar.open;
@@ -66,6 +120,7 @@ const BookTables = () => {
   const tables = useSelector((state) => {
     return state.restaurant.tables;
   });
+  const windowWidth = useWindowWidth();
   const dispatch = useDispatch();
   const get_tables = async () => {
     try {
@@ -89,33 +144,34 @@ const BookTables = () => {
     get_tables();
   }, []);
   return (
-    <MainDiv
+    <BookingMainDiv
       component="main"
-      sx={{ flexGrow: 1, pl: 5, pt: 2, pr: 2 }}
+      sx={{ flexGrow: 1, pl: 0, pt: 2, pr: 2 }}
       open={open}
+      windowWidth={windowWidth}
     >
-      <Typography variant="h1" component="div" gutterBottom>
-        Tables
-      </Typography>
-      {/* <Grid item xs={12} md={8} lg={9}>
-        {tables?.map((table, i) => (
-          <div key={i} id="drag-1" className="draggable">
-            <p> {table.table_name} </p>
-          </div>
-        ))}
-      </Grid> */}
-      {/* <div> */}
-      <Grid id="top-row" container spacing={2}>
-        {tables?.map((table, i) => (
-          <Grid key={i} item className="draggable" xs={4}>
-            <div className="drag-2">
-              <div className="box-inside">{table.table_name} </div>{" "}
-            </div>
-          </Grid>
-        ))}
-      </Grid>
-      {/* </div> */}
-    </MainDiv>
+      <GridCustom container windowWidth={windowWidth}>
+        <Grid item xs={12} md={7} lg={7} pr={5}>
+          <Typography variant="h4" component="div" gutterBottom>
+            Book Tables
+          </Typography>
+          <ReservationForm />
+        </Grid>
+        <Grid item xs={12} md={4} lg={4} container spacing={3}>
+          {tables?.map((table, i) => (
+            <Grid key={i} item className="" xs={5}>
+              <div className="drag-2 draggable">
+                <div className="box-inside" style={{ paddingTop: "10px" }}>
+                  <Typography variant="overline" sx={{ paddingLeft: 1 }}>
+                    {table.table_name}
+                  </Typography>{" "}
+                </div>{" "}
+              </div>
+            </Grid>
+          ))}
+        </Grid>
+      </GridCustom>
+    </BookingMainDiv>
   );
 };
 
