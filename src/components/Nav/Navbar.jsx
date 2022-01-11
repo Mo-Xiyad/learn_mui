@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import LeftBar from "./Leftbar";
 
 const drawerWidth = 240;
@@ -48,7 +48,12 @@ const Navbar = () => {
     return state.restaurant;
   });
   const navigate = useNavigate();
+  const location = useLocation();
+  React.useEffect(() => {
+    console.log(location.pathname);
+  }, []);
   const theme = useTheme();
+
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar
@@ -69,9 +74,9 @@ const Navbar = () => {
           </CustomTypography>
         </Toolbar>
       </AppBar>
-      {restaurant?.name && restaurant?.tables ? (
+      {location.pathname !== "/create-restaurant" ? (
         <>
-          <LeftBar />{" "}
+          <LeftBar />
         </>
       ) : (
         <></>

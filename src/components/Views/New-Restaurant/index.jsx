@@ -64,7 +64,7 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
 const ValidationTextField = styled(TextField)({
   "& input:valid + fieldset": {
     borderColor: "green",
-    borderWidth: 2,
+    borderWidth: 1,
   },
   "& input:invalid + fieldset": {
     borderColor: "red",

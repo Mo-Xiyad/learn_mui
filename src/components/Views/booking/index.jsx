@@ -29,8 +29,9 @@ interact(".draggable").draggable({
 
     // call this function on every dragend event
     end(event) {
-      var textEl = event.target.querySelector("p");
-
+      var textEl = event.target.querySelector(".box-inside");
+      // console.log(event.pageX);
+      // console.log(event.pageY);
       textEl &&
         (textEl.textContent =
           "moved a distance of " +
@@ -85,7 +86,7 @@ const BookTables = () => {
   };
 
   useEffect(() => {
-    // get_tables();
+    get_tables();
   }, []);
   return (
     <MainDiv
