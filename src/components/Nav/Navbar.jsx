@@ -68,7 +68,7 @@ const Navbar = () => {
             sx={{ paddingLeft: "30px" }}
             component="div"
             className="navText"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/home")}
           >
             happy
           </CustomTypography>
