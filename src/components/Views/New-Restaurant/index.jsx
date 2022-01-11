@@ -141,6 +141,12 @@ const Registration = () => {
                   label="Number of tables  "
                   required
                   type="number"
+                  onInput={(e) => {
+                    e.target.value = Math.max(0, parseInt(e.target.value))
+                      .toString()
+                      .slice(0, 2);
+                  }}
+                  min={0}
                   variant="outlined"
                   defaultValue=""
                   id="validation-outlined-input"
