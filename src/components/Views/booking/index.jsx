@@ -152,8 +152,16 @@ const BookTables = () => {
     >
       <GridCustom container windowWidth={windowWidth}>
         <Grid item xs={12} md={7} lg={7} pr={5}>
-          <Typography variant="h4" component="div" gutterBottom>
-            Book Tables
+          <Typography
+            variant={windowWidth < 682 ? "h5" : "h3"}
+            component="div"
+            gutterBottom
+          >
+            Reserve Table
+          </Typography>
+          <Typography variant="subtitle2" display="block" gutterBottom>
+            Please fill the form below accurately to enable us serve you
+            better!.. welcome!
           </Typography>
           <ReservationForm />
         </Grid>
