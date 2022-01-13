@@ -11,6 +11,7 @@ import "./Styles.css";
 import { setRestaurantDataAction } from "../../../redux/actions";
 import { useWindowWidth } from "../../../tools";
 import ReservationForm from "./Form";
+import { FormControl, Paper, TextField } from "@mui/material";
 
 const drawerWidth = 240;
 // target elements with the "draggable" class
@@ -165,18 +166,18 @@ const BookTables = () => {
           </Typography>
           <ReservationForm />
         </Grid>
-        <Grid item xs={12} md={4} lg={4} container spacing={3}>
+        <Grid item xs={12} md={4} lg={4} container spacing={3} sx={{marginTop:"110px"}}>
+           {/* <Grid item className="" xs={5}> */}
           {tables?.map((table, i) => (
-            <Grid key={i} item className="" xs={5}>
-              <div className="drag-2 draggable">
+              <div key={i} className="drag-2 draggable">
                 <div className="box-inside" style={{ paddingTop: "10px" }}>
                   <Typography variant="overline" sx={{ paddingLeft: 1 }}>
                     {table.table_name}
                   </Typography>{" "}
                 </div>{" "}
               </div>
-            </Grid>
           ))}
+         {/* </Grid> */}
         </Grid>
       </GridCustom>
     </BookingMainDiv>
