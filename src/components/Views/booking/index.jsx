@@ -89,16 +89,18 @@ const GridCustom = styled(Grid, {
 const BookingMainDiv = styled(Box, {
   shouldForwardProp: (prop) => prop !== "windowWidth" && prop !== "open",
 })(({ theme, windowWidth, open }) => ({
-  // display: "flex",
+  display: "flex",
+  justifyContent: "center",
   marginLeft: "50px",
   marginTop: "4vh",
+  width: "100%",
   transition: theme.transitions.create(["width", "margin"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(windowWidth < 600 && {
     marginTop: "13vh",
-    marginLeft: "30px",
+    marginLeft: "40px",
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -151,7 +153,7 @@ const BookTables = () => {
       open={open}
       windowWidth={windowWidth}
     >
-      <GridCustom container windowWidth={windowWidth}>
+      <GridCustom container windowWidth={windowWidth} className="">
         <Grid item xs={12} md={7} lg={7} pr={5}>
           <Typography
             variant={windowWidth < 682 ? "h5" : "h3"}
@@ -166,18 +168,25 @@ const BookTables = () => {
           </Typography>
           <ReservationForm />
         </Grid>
-        <Grid item xs={12} md={4} lg={4} container spacing={3} sx={{marginTop:"110px"}}>
-           {/* <Grid item className="" xs={5}> */}
+        <Grid
+          item
+          xs={12}
+          md={4}
+          lg={4}
+          container
+          spacing={2}
+          sx={{ marginTop: "90px", marginBottom: "10px" }}
+          className=""
+        >
           {tables?.map((table, i) => (
-              <div key={i} className="drag-2 draggable">
-                <div className="box-inside" style={{ paddingTop: "10px" }}>
-                  <Typography variant="overline" sx={{ paddingLeft: 1 }}>
-                    {table.table_name}
-                  </Typography>{" "}
-                </div>{" "}
-              </div>
+            <div key={i} className="drag-2 draggable">
+              <div className="box-inside" style={{ paddingTop: "10px" }}>
+                <Typography variant="overline" sx={{ paddingLeft: 1 }}>
+                  {table.table_name}
+                </Typography>{" "}
+              </div>{" "}
+            </div>
           ))}
-         {/* </Grid> */}
         </Grid>
       </GridCustom>
     </BookingMainDiv>
